@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AdminMVC.Models.VisningsSchema>
+
+@{
+    ViewBag.Title = "GetVisningsSchema";
+}
+
+<h2>GetVisningsSchema</h2>
+
+<p>
+    @Html.ActionLink("Skapa ny visning", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FilmTitel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalongsNamn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visningstid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmTitel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalongsNamn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visningstid)
+        </td>
+        <td>
+            @Html.ActionLink("Redigera", "PutVisningsSchema", new { id = item.Id }) |
+            @Html.ActionLink("Ta bort", "DeleteVisningsSchema", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

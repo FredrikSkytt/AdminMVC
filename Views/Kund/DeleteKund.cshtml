@@ -1,0 +1,72 @@
+﻿@model AdminMVC.Models.Kund
+
+@{
+    ViewBag.Title = "DeleteKund";
+}
+
+<h2>DeleteKund</h2>
+
+<h3>Är du säker på att du vill ta bort kunden??</h3>
+<div>
+    <h4>Kund</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Efternamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Efternamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bonuspoang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bonuspoang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InloggningsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InloggningsId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka", "GetKund")
+        </div>
+    }
+</div>

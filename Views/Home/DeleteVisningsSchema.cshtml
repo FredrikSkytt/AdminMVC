@@ -1,0 +1,49 @@
+﻿@model AdminMVC.Models.VisningsSchema
+
+@{
+    ViewBag.Title = "DeleteVisningsSchema";
+}
+
+<h2>DeleteVisningsSchema</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VisningsSchema</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmTitel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmTitel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalongsNamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalongsNamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visningstid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visningstid)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka", "GetVisningsSchema")
+        </div>
+    }
+</div>

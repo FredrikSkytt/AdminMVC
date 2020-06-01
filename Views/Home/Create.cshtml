@@ -1,0 +1,35 @@
+﻿@model AdminMVC.Models.VisningsSchema
+
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        <strong>Välj filmtitel</strong>
+        @Html.DropDownListFor(model => model.FilmTitel, new SelectList(ViewBag.filmtitelLista), "Välj en film", new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.TitelLista, "", new { @class = "text-danger" })
+    </div>
+
+
+
+    <div>
+        <strong>Ange salong</strong>
+        @Html.DropDownListFor(model => model.SalongsNamn, new SelectList(ViewBag.salongnamnLista), "Välj en salong", new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SalongsNamn, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+
+        <strong>Ange datum & tid </strong>
+        @Html.TextBoxFor(model => model.Visningstid, new { Type = "datetime-local" })
+        @Html.ValidationMessageFor(model => model.Visningstid, "")
+
+
+    </div>
+
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+

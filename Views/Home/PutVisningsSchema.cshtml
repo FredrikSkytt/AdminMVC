@@ -1,0 +1,46 @@
+﻿@model AdminMVC.Models.VisningsSchema
+
+@{
+    ViewBag.Title = "PutVisningsSchema";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        <strong>Välj filmtitel</strong>
+        @Html.DropDownListFor(model => model.FilmTitel, new SelectList(ViewBag.filmtitelLista), "Välj film")
+        @Html.ValidationMessageFor(model => model.FilmTitel, "")
+    </div>
+
+    <div>
+        <strong>Välj salong</strong>
+        @Html.DropDownListFor(model => model.SalongsNamn, new SelectList(ViewBag.salongnamnLista), "Välj en salong")
+        @Html.ValidationMessageFor(model => model.SalongsNamn, "")
+    </div>
+
+    <div>
+        <div>
+            <strong>Aktuell tid </strong>
+
+            @Html.DisplayFor(model => model.Visningstid)
+        </div>
+
+        <div>
+            <strong>Ange nytt datum & ny tid </strong>
+            @Html.TextBoxFor(model => model.Visningstid, new { Type = "datetime-local" })
+            @Html.ValidationMessageFor(model => model.Visningstid, "")
+
+        </div>
+
+    </div>
+
+
+    <input type="submit" value="Spara" />
+
+}
+
+<div>
+    @Html.ActionLink("Tillbaka", "GetVisningsSchema")
+</div>
